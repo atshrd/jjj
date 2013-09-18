@@ -59,10 +59,11 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    respond_to do |format|
-      format.html { redirect_to reservations_url }
-      format.json { head :no_content }
-    end
+    @reservations = Reservation.all
+#    respond_to do |format|
+#      format.html { redirect_to reservations_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private
